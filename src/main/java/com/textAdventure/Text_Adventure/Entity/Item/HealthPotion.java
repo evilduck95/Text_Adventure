@@ -6,7 +6,6 @@ public class HealthPotion extends Potion {
         PotionBuilder healthPotionBuilder = new PotionBuilder().
                 withHealthEffect(healthEffect).
                 withEffectTurnLimit(effectTurnLimit);
-        this = (HealthPotion) healthPotionBuilder.build();
 
     }
 

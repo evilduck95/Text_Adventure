@@ -1,4 +1,11 @@
-package com.textAdventure.Text_Adventure.Entity.NPC;
+package com.textAdventure.Text_Adventure.Entity.Character;
 
-public class Monster {
+public class Monster extends DefaultCharacter {
+
+    public Monster(int strength,
+                   int intelligence,
+                   int endurance) {
+        super(strength, endurance, intelligence);
+    }
+
 }

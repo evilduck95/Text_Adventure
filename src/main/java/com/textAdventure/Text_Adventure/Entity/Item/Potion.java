@@ -6,6 +6,8 @@ public class Potion {
     private int manaEffect;
     private int effectTurnLimit;
 
+    public Potion() {}
+
     public Potion(int healthEffect, int manaEffect, int effectTurnLimit) {
         this.healthEffect = healthEffect;
         this.manaEffect = manaEffect;
