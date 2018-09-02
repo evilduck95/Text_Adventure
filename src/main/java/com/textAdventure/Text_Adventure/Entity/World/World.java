@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class DefaultWorld {
+public class World {
 
     private List<List<Integer>> worldMap;
 
