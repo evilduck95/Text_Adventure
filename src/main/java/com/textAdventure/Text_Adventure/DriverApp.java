@@ -12,7 +12,7 @@ public class DriverApp {
         ClassValidator.validate(test);
 
         World world = new World();
-        world.importWorld("static/worlds/testWorld.csv");
+        world.importWorld("world/testWorld.csv");
         world.printWorld();
 
         for(int y = 0; y < 10; y++){ System.out.println(world.getCellType(0, y)); }

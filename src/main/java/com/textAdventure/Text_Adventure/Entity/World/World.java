@@ -21,8 +21,8 @@ public class World {
         if(!fileName.contains(".csv")){
             fileName.concat(".csv");
         }
-        if(!fileName.contains("static.worlds/")) {
-            fileName = String.join("static.world/", fileName);
+        if (!fileName.contains("world/")) {
+            fileName = String.join("world/", fileName);
         }
         // World Name without all the crap around it.
         this.worldName = fileName.substring(14, fileName.length() - 4);
