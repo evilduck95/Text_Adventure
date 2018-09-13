@@ -21,8 +21,8 @@ public class World {
         if(!fileName.contains(".csv")){
             fileName.concat(".csv");
         }
-        if (!fileName.contains("world/")) {
-            fileName = String.join("world/", fileName);
+        if (!fileName.contains("static/world/")) {
+            fileName = String.join("static/world/", fileName);
         }
         // World Name without all the crap around it.
         this.worldName = fileName.substring(14, fileName.length() - 4);
@@ -82,6 +82,7 @@ public class World {
             row.forEach(cell -> System.out.print(String.format("%d | ", cell)));
             System.out.println("\n----------------------------------------");
         });
+        System.out.println();
 
     }
 

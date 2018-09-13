@@ -1,25 +1,19 @@
 package com.textAdventure.Text_Adventure.Entity.World;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WorldTest {
 
     private static final String TEST_WORLD_FILE = "static/worlds/testWorld.csv";
 
     // Test methods under normal operation. -->
-
 
     @Test
     void importWorld() {
