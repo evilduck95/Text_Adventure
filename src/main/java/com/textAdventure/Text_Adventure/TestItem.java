@@ -34,4 +34,14 @@ public class TestItem {
     }
 
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("TestItem:\n")
+                .append(String.format("num: %d\n", num))
+                .append(String.format("str: %s", str));
+
+        return sb.toString();
+    }
+
+
 }
