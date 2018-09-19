@@ -1,9 +1,10 @@
 package com.textAdventure.Text_Adventure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.textAdventure.Text_Adventure.Utils.Logger;
 
 import java.io.IOException;
+
+import static com.textAdventure.Text_Adventure.Utils.Logger.info;
 
 public class DriverApp {
 
@@ -14,8 +15,8 @@ public class DriverApp {
         final String testJson = "{\"num\":14, \"str\":\"keiran\"}";
         final TestItem testItem = objectMapper.readValue(testJson, TestItem.class);
 
-        Logger.info(testItem);
-        Logger.info("Hello, it'sa me, a'mario!");
+        info(testItem);
+        info("Hello, it'sa me, a'mario!");
 
     }
 }

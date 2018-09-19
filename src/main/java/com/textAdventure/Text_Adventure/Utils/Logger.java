@@ -12,19 +12,10 @@ public class Logger {
 
 
     public static <T> void info(T message) {
-        String output = message.toString();
-        if (output.contains("\n")) {
-            System.out.println(String.format("%s\n\n%s\n\n%s",
-                    INFO_INDICATOR,
-                    output,
-                    MESSAGE_FOOTER));
-
-        } else {
-            System.out.println(String.format("%s - %s",
-                    INFO_INDICATOR,
-                    output));
-        }
-
+        String messageStr = message.toString();
+        String outputStr = messageStr.contains("\n") ?
+                String.format("%s\n\n%s\n\n%s", INFO_INDICATOR, messageStr, MESSAGE_FOOTER) :
+                String.format("%s - %s", INFO_INDICATOR, messageStr);
+        System.out.println(outputStr);
     }
-
 }
