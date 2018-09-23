@@ -1,12 +1,10 @@
 package com.textAdventure.Text_Adventure.Configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
-import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
@@ -17,8 +15,8 @@ import org.springframework.messaging.MessageHandler;
 
 import java.io.File;
 
-@Configuration
-@EnableIntegration
+//@Configuration
+//@EnableIntegration
 public class ExampleConfig {
     private final String inputFile = "src/main/resources/in";
     private final String outputFile = "src/main/resources/out";
