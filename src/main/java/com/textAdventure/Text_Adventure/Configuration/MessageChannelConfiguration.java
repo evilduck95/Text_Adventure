@@ -20,6 +20,11 @@ public class MessageChannelConfiguration {
     }
 
     @Bean
+    public MessageChannel jsonRoutingChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
     public MessageChannel jsonLoggingChannel() {
         return new DirectChannel();
     }
