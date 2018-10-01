@@ -40,11 +40,11 @@ public class JsonController {
                 .get();
     }
 
-    //TODO: SOME ROUTING
+    //TODO: Make my own damned filter!
     @Bean
     public IntegrationFlow jsonRoutingFlow() {
         return IntegrationFlows.from(jsonRoutingChannel)
-                .filter(jsonHeaderFilter)
+                .filter(f ->)
                 .channel("nowhere")
                 .get();
     }
