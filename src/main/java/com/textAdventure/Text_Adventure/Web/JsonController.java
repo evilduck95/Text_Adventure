@@ -17,6 +17,9 @@ public class JsonController {
     private JsonParseTransformer jsonParseTransformer;
 
     @Autowired
+    private JsonHeaderFilter jsonHeaderFilter;
+
+    @Autowired
     private MessageChannel jsonInputChannel;
 
     @Autowired
@@ -40,7 +43,10 @@ public class JsonController {
     //TODO: SOME ROUTING
     @Bean
     public IntegrationFlow jsonRoutingFlow() {
-        return IntegrationFlows.from(jsonRoutingChannel);
+        return IntegrationFlows.from(jsonRoutingChannel)
+                .filter(jsonHeaderFilter)
+                .channel("nowhere")
+                .get();
     }
 
 
