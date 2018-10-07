@@ -2,7 +2,7 @@ package com.textAdventure.Text_Adventure.Entity.Character;
 
 import javax.validation.constraints.Max;
 
-public class DefaultCharacter {
+public class Character {
 
     // Character Props
     @Max(100) private int health;
@@ -12,9 +12,9 @@ public class DefaultCharacter {
     @Max(10)  private int endurance;
     @Max(10)  private int intelligence;
 
-    public DefaultCharacter(int strength,
-                            int endurance,
-                            int intelligence) {
+    public Character(int strength,
+                     int endurance,
+                     int intelligence) {
 
         this.strength = strength;
         this.endurance = endurance;
@@ -22,7 +22,6 @@ public class DefaultCharacter {
 
         this.health = 100;
         this.stamina = 100;
-
     }
 
     public int getHealth() { return health; }
@@ -42,8 +41,6 @@ public class DefaultCharacter {
 
     public int getIntelligence() { return intelligence; }
     public void setIntelligence(int intelligence) { this.intelligence = intelligence; }
-
-
 
 
 }

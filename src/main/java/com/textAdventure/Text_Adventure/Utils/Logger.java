@@ -1,5 +1,5 @@
-package com.textAdventure.Text_Adventure.Utils;
 
+package com.textAdventure.Text_Adventure.Utils;
 public class Logger {
 
     private final static String INFO_INDICATOR = "[ ? INFORMATION ? ]";
@@ -18,4 +18,31 @@ public class Logger {
                 String.format("%s - %s", INFO_INDICATOR, messageStr);
         System.out.println(outputStr);
     }
+
+    public static <T> void warning(T message) {
+        String messageStr = message.toString();
+        String outputStr = messageStr.contains("\n") ?
+                String.format("%s\n\n%s\n\n%s", WARNING_INDICATOR, messageStr, MESSAGE_FOOTER) :
+                String.format("%s - %s", WARNING_INDICATOR, messageStr);
+        System.out.println(outputStr);
+    }
+
+    public static <T> void error(T message, Exception exception) {
+        error(message.toString().concat(
+                String.format("%s%s%s",
+                        MESSAGE_HEADER,
+                        exception.getMessage(),
+                        MESSAGE_FOOTER)
+        ));
+    }
+
+    public static <T> void error(T message) {
+        String messageStr = message.toString();
+        String outputStr = messageStr.contains("\n") ?
+                String.format("%s\n\n%s\n\n%s", ERROR_INDICATOR, messageStr, MESSAGE_FOOTER) :
+                String.format("%s - %s", ERROR_INDICATOR, messageStr);
+        System.out.println(outputStr);
+    }
+
+
 }

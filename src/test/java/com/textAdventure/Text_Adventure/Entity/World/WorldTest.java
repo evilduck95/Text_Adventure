@@ -18,7 +18,7 @@ class WorldTest {
     @Test
     void importWorld() {
 
-        final World world = new World();
+        final World world = new World(worldMap, worldName);
         world.importWorld(TEST_WORLD_FILE);
 
         final String actual = world.worldName;
@@ -29,7 +29,7 @@ class WorldTest {
     @Test
     void printWorld() {
 
-        final World world = new World();
+        final World world = new World(worldMap, worldName);
         world.importWorld(TEST_WORLD_FILE);
 
         // Stream for grabbing console print-outs, save original.
@@ -50,7 +50,7 @@ class WorldTest {
     @Test
     void getCellType() {
 
-        final World world = new World();
+        final World world = new World(worldMap, worldName);
         world.importWorld(TEST_WORLD_FILE);
 
         // Get the cell type, it should return the enum value of that cell.

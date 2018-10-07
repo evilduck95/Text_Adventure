@@ -46,14 +46,17 @@ public class JsonController {
     @Bean
     public IntegrationFlow jsonRoutingFlow() {
         return IntegrationFlows.from(jsonRoutingChannel)
-                .filter(Message.class, m -> getActionType(m).equals("testItem"))
-                .handle(m -> Logger.info("Filter Passed!"))
+                .wireTap(f -> f
+                        .filter(Message.class, m -> getActionType(m).equals("testItem"))
+                        .handle(m -> Logger.info("First Filter Passed!")))
+                .wireTap(f -> f
+                        .filter(Message.class, m -> getActionType(m).equals("secondTestItem"))
+                        .handle(m -> Logger.info("Second Filter Passed!")))
                 .get();
     }
 
     private String getActionType(Message<?> message) {
         JsonNode messageJson = (JsonNode) message.getPayload();
-        Logger.info(messageJson.get("actionType").textValue());
         return messageJson.get("actionType").textValue();
     }
 

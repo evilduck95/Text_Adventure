@@ -1,10 +1,8 @@
 package com.textAdventure.Text_Adventure.Entity.Character;
 
-import com.textAdventure.Text_Adventure.Entity.Character.Monster;
-
 import java.util.List;
 
-public class Player extends DefaultCharacter{
+public class Player extends Character {
 
     // Inventory control.
     private List<Object> inventory;

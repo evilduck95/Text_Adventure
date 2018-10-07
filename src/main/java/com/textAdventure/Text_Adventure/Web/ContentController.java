@@ -1,11 +1,9 @@
 package com.textAdventure.Text_Adventure.Web;
 
-import com.textAdventure.Text_Adventure.Entity.Character.UserName;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContentController {
@@ -17,12 +15,5 @@ public class ContentController {
         model.addAttribute("name", name);
         return "home";
     }
-
-    @RequestMapping(value = "/newName", method = RequestMethod.POST)
-    public ResponseEntity<UserName> storeName(@RequestBody UserName userName) {
-        System.out.println(String.format("New Username Received; %s", userName.getUserName()));
-        return new ResponseEntity<UserName>(userName, HttpStatus.OK);
-    }
-
 
 }
