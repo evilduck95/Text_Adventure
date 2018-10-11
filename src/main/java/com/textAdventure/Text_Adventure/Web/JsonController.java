@@ -57,18 +57,30 @@ public class JsonController {
     public IntegrationFlow jsonRoutingFlow() {
 
         mongoOperations.save(new TestItem(4, "kek"));
-        mongoOperations.save(new TestItem(123, "omg it works!"));
+        mongoOperations.save(new TestItem(123, "omg it works!"), "testItemCollection");
         List<TestItem> testItemList = mongoOperations.findAll(TestItem.class);
+
         testItemList.forEach(testItem -> Logger.info("Found: " + testItem.toString()));
 
         return IntegrationFlows.from(jsonRoutingChannel)
-                .wireTap(f -> f
-                        .filter(Message.class, m -> getActionType(m).equals("testItem"))
-                        .handle(m -> Logger.info("First Filter Passed!")))
-                .wireTap(f -> f
-                        .filter(Message.class, m -> getActionType(m).equals("secondTestItem"))
-                        .handle(m -> Logger.info("Second Filter Passed!")))
+                .route(Message.class, this::getActionType, routerSpec -> routerSpec
+                        .resolutionRequired(true)
+                        .subFlowMapping("testItem", testItemFlow -> testItemFlow.handle(this::logMessage))
+                        .subFlowMapping("secondTestItem", secondItemFlow -> secondItemFlow.channel("nowhere yet")))
                 .get();
+
+//        return IntegrationFlows.from(jsonRoutingChannel)
+//                .wireTap(f -> f
+//                        .filter(Message.class, m -> getActionType(m).equals("testItem"))
+//                        .handle(m -> Logger.info("First Filter Passed!")))
+//                .wireTap(f -> f
+//                        .filter(Message.class, m -> getActionType(m).equals("secondTestItem"))
+//                        .handle(m -> Logger.info("Second Filter Passed!")))
+//                .get();
+    }
+
+    public void logMessage(Message<?> message) {
+        System.out.println("Handler Reached!");
     }
 
 
