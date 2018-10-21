@@ -14,18 +14,51 @@ import org.springframework.messaging.MessageChannel;
 @IntegrationComponentScan
 public class MessageChannelConfiguration {
 
+    // JSON Channels
     @Bean
-    public MessageChannel jsonInputChannel() {
+    public MessageChannel jsonInput() {
         return new DirectChannel();
     }
 
     @Bean
-    public MessageChannel jsonRoutingChannel() {
+    public MessageChannel jsonLogging() {
         return new DirectChannel();
     }
 
     @Bean
-    public MessageChannel jsonLoggingChannel() {
+    public MessageChannel jsonToObject() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel jsonToAction() {
+        return new DirectChannel();
+    }
+
+    // Object Channels
+
+    @Bean
+    public MessageChannel testItemChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel attributeChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel characterChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel monsterChannel() {
+        return new DirectChannel();
+    }
+
+    @Bean
+    public MessageChannel playerChannel() {
         return new DirectChannel();
     }
 

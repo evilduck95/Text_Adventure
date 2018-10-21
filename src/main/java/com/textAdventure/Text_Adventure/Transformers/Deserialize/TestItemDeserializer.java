@@ -1,4 +1,4 @@
-package com.textAdventure.Text_Adventure.Json.Deserialize;
+package com.textAdventure.Text_Adventure.Transformers.Deserialize;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class TestItemDeserializer extends JsonDeserializer<TestItem> {
 
-    //TODO: Configure some sort of flow to use this? Or i'm doing it wrong, find out next week on 'JAVA @ HOME'!
     @Override
     public TestItem deserialize(JsonParser jsonParser, DeserializationContext context) throws IOException {
         ObjectCodec objectCodec = jsonParser.getCodec();

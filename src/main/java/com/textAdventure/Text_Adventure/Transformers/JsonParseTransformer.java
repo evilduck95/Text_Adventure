@@ -9,22 +9,24 @@ import org.springframework.messaging.support.MessageBuilder;
 
 import java.io.IOException;
 
+// Transforms payload to JsonNode.
+
 @Configuration
 public class JsonParseTransformer implements Transformer {
 
     @Override
     public Message<?> transform(Message<?> message) {
         ObjectMapper mapper = new ObjectMapper();
+        JsonNode payloadJson = null;
         try {
-            JsonNode payloadJson = mapper.readTree(new String((byte[]) message.getPayload()));
-            return MessageBuilder
-                    .withPayload(payloadJson)
-                    .copyHeaders(message.getHeaders())
-                    .build();
+            payloadJson = mapper.readTree(new String((byte[]) message.getPayload()));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        return null;    // TODO: Will we ever reach here???
+        return MessageBuilder
+                .withPayload(payloadJson)
+                .copyHeaders(message.getHeaders())
+                .build();
     }
 
 }

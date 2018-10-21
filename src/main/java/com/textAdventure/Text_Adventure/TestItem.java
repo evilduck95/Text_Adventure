@@ -1,7 +1,7 @@
 package com.textAdventure.Text_Adventure;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.textAdventure.Text_Adventure.Json.Deserialize.TestItemDeserializer;
+import com.textAdventure.Text_Adventure.Transformers.Deserialize.TestItemDeserializer;
 import org.springframework.data.annotation.Id;
 
 @JsonDeserialize(using = TestItemDeserializer.class)
