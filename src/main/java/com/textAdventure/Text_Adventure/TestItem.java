@@ -1,10 +1,12 @@
 package com.textAdventure.Text_Adventure;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.textAdventure.Text_Adventure.Transformers.Deserialize.TestItemDeserializer;
 import org.springframework.data.annotation.Id;
 
 @JsonDeserialize(using = TestItemDeserializer.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TestItem {
 
     @Id

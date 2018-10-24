@@ -15,6 +15,7 @@ import org.springframework.messaging.MessageChannel;
 public class MessageChannelConfiguration {
 
     // JSON Channels
+
     @Bean
     public MessageChannel jsonInput() {
         return new DirectChannel();
