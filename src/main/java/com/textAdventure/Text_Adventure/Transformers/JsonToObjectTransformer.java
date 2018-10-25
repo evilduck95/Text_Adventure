@@ -25,7 +25,7 @@ public class JsonToObjectTransformer extends AbstractTransformer {
         System.out.printf("\nParsed: %s\n", parsedObject);
 
         return MessageBuilder
-                .withPayload(parsedObject)  // TODO: Trying to cast to message, don't do this, just wrap object with message?
+                .withPayload(parsedObject)
                 .copyHeaders(message.getHeaders())
                 .build();
 

@@ -20,7 +20,7 @@ public class JsonToObjectController {
                 .transform(jsonToObjectTransformer)
                 .<Message<Object>, String>route(objectMessage -> objectMessage.getHeaders().get("objectType", String.class),
                         objectRouterFlow ->
-                                objectRouterFlow.channelMapping("testItem", "testItemChannel")
+                                objectRouterFlow.channelMapping("testItem", "testItemChannel")  // TODO: Check Router flows, some sort of casting issue...
                                         .channelMapping("attribute", "attributeChannel")
                                         .channelMapping("character", "characterChannel")
                                         .channelMapping("monster", "monsterChannel")
